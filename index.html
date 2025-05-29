@@ -11,16 +11,6 @@
             font-family: 'Inter', sans-serif;
         }
     </style>
-
-<script>
-
-         (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener banner closeBanner closeJourney data deepview deepviewCta first init link logout removeListener setBranchViewData setIdentity track trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback qrCode setRequestMetaData setAPIUrl getAPIUrl setDMAParamsForEEA".split(" "), 0);
-		branch.init('key_live_fEqpdWEcm64RZbWMGyfThcooEybNkHjr', function(err, data) {
-				console.log(err, data);
-
-		});
-	</script>
-
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
     <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl max-w-2xl w-full text-center transform hover:scale-105 transition-transform duration-300 ease-in-out">
@@ -47,18 +37,18 @@
     </div>
 
     <script type="text/javascript">
-        // Initialize the Branch SDK
-        // Replace 'YOUR_BRANCH_KEY' with your actual Branch Live Key (e.g., key_live_YOURKEY)
-        // You can find your Branch Key in your Branch Dashboard under Account Settings -> App -> SDK Keys
-        (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){return b._q.push([r].concat(Array.prototype.slice.call(arguments)))};},"branch",["init","banner","data","track","createLink","sendSMS","setIdentity","logout","logEvent"]);
-        branch.init('key_live_YOUR_BRANCH_KEY'); // <-- IMPORTANT: Replace 'key_live_YOUR_BRANCH_KEY' with your actual Branch Live Key
+        // Load Branch SDK
+        (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener banner closeBanner closeJourney data deepview deepviewCta first init link logout removeListener setBranchViewData setIdentity track trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback qrCode setRequestMetaData setAPIUrl getAPIUrl setDMAParamsForEEA".split(" "), 0);
 
-        // Optional: Listen for Branch data (e.g., when the page is opened via a deep link)
-        branch.data(function(err, data) {
-            if (!err) {
-                console.log('Branch data:', data);
-                // You can use 'data' here to personalize the user experience
-                // For example, if 'data.$deeplink_path' exists, redirect to a specific in-app page
+        // Initialize Branch and handle initial data
+        branch.init('key_live_fEqpdWEcm64RZbWMGyfThcooEybNkHjr', function(err, data) {
+            if (err) {
+                console.error('Branch init error:', err);
+            } else {
+                console.log('Branch init data:', data);
+                // The initial deep link data is available in the 'data' object here.
+                // You can use 'data' to personalize the user experience,
+                // e.g., if 'data.$deeplink_path' exists, redirect to a specific in-app page.
             }
         });
 
