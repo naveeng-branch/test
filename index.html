@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our App!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a clean look */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+
+	<script type="text/javascript">
+		(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="dist/build.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setIdentity track validateCode".split(" "), 0);
+
+		// Note that this example is using the key in two places, here and below
+		branch.init('key_live_fEqpdWEcm64RZbWMGyfThcooEybNkHjr', function(err, data) {
+		});
+	</script>
+
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl max-w-2xl w-full text-center transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+            Unlock the Full Experience!
+        </h1>
+        <p class="text-lg md:text-xl text-gray-700 mb-8">
+            Dive deeper into our amazing features. Get the app now and discover a world of possibilities.
+        </p>
+
+        <div class="space-y-4">
+            <button id="getAppButton" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50">
+                Get the App Now!
+            </button>
+
+            <button id="shareButton" class="bg-white border border-indigo-400 text-indigo-600 hover:bg-indigo-50 hover:text-indigo-700 font-bold py-3 px-8 rounded-full shadow-md transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-50">
+                Share with Friends
+            </button>
+        </div>
+
+        <p class="text-sm text-gray-500 mt-10">
+            Powered by Branch.io for seamless deep linking and attribution.
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        // Initialize the Branch SDK
+        // Replace 'YOUR_BRANCH_KEY' with your actual Branch Live Key (e.g., key_live_YOURKEY)
+        // You can find your Branch Key in your Branch Dashboard under Account Settings -> App -> SDK Keys
+        (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){return b._q.push([r].concat(Array.prototype.slice.call(arguments)))};},"branch",["init","banner","data","track","createLink","sendSMS","setIdentity","logout","logEvent"]);
+        branch.init('key_live_YOUR_BRANCH_KEY'); // <-- IMPORTANT: Replace 'key_live_YOUR_BRANCH_KEY' with your actual Branch Live Key
+
+        // Optional: Listen for Branch data (e.g., when the page is opened via a deep link)
+        branch.data(function(err, data) {
+            if (!err) {
+                console.log('Branch data:', data);
+                // You can use 'data' here to personalize the user experience
+                // For example, if 'data.$deeplink_path' exists, redirect to a specific in-app page
+            }
+        });
+
+        // Example: Track a custom event when the "Get the App Now!" button is clicked
+        document.getElementById('getAppButton').addEventListener('click', function() {
+            console.log('Get App button clicked!');
+            branch.logEvent('get_app_button_clicked', {
+                'landing_page_source': 'website',
+                'button_name': 'Get App Now'
+            });
+            // Optionally, you can also create a Branch link and redirect the user
+            // branch.createLink({
+            //     campaign: 'landing_page_cta',
+            //     channel: 'web',
+            //     feature: 'get_app',
+            //     data: {
+            //         'custom_data': 'value'
+            //     }
+            // }, function(err, link) {
+            //     if (!err) {
+            //         console.log('Branch link created:', link);
+            //         window.location.href = link; // Redirect to the generated Branch link
+            //     }
+            // });
+        });
+
+        // Example: Track a custom event when the "Share with Friends" button is clicked
+        document.getElementById('shareButton').addEventListener('click', function() {
+            console.log('Share button clicked!');
+            branch.logEvent('share_button_clicked', {
+                'landing_page_source': 'website',
+                'button_name': 'Share with Friends'
+            });
+
+            // Example of creating a share link and opening the native share sheet (if available)
+            branch.createLink({
+                campaign: 'landing_page_share',
+                channel: 'web_share',
+                feature: 'share_app',
+                data: {
+                    'custom_share_message': 'Check out this awesome app!'
+                }
+            }, function(err, link) {
+                if (!err) {
+                    console.log('Branch share link created:', link);
+                    if (navigator.share) {
+                        navigator.share({
+                            title: 'Our Awesome App',
+                            text: 'You should really check out this app!',
+                            url: link
+                        }).then(() => console.log('Successful share'))
+                          .catch((error) => console.log('Error sharing', error));
+                    } else {
+                        // Fallback for browsers that don't support navigator.share
+                        // You could display the link or copy it to clipboard
+                        console.log('Web Share API not supported. Share this link:', link);
+                        // For copying to clipboard, you'd need a more robust solution
+                        // document.execCommand('copy') is deprecated, but works in iframes
+                        const el = document.createElement('textarea');
+                        el.value = link;
+                        document.body.appendChild(el);
+                        el.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(el);
+                        alert('Link copied to clipboard: ' + link); // Using alert for demo, replace with custom modal
+                    }
+                } else {
+                    console.error('Error creating Branch link:', err);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
