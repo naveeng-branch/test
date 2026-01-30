@@ -3,252 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply for Personal Loan</title> 
+    <title>Apply for Personal Loan | SoftBank</title> 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-   
         body {
             font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            padding-bottom: 120px; /* Space for fixed footer */
         }
-   
         .tenure-active {
             @apply bg-red-600 text-white border-red-600;
         }
-            #branch-banner-iframe {
-        bottom: 56px !important;
-    }
+        #branch-banner-iframe {
+            bottom: 120px !important;
+        }
+        .cta-button {
+            @apply bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg active:scale-95 transition-transform w-full text-center block text-lg;
+        }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen"> 
     
-    <header class="bg-white p-4 shadow-sm border-b border-gray-200">
+    <header class="bg-white p-4 shadow-sm border-b border-gray-200 sticky top-0 z-10">
         <div class="flex items-center justify-between max-w-7xl mx-auto">
             <div class="flex items-center space-x-2">
-                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 <span class="text-sm text-gray-500">Home / Personal Loan</span>
             </div>
         </div>
     </header>
 
-    <main class="p-0">
-        <div class="bg-white p-4 shadow-lg">
-            <h1 class="text-2xl font-bold text-gray-900 mb-2">
+    <main class="max-w-md mx-auto">
+        <div class="bg-white p-5 shadow-sm">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2 leading-tight">
                 Apply for Personal Loan Online <br> Starting at 9.99% p.a.
             </h1>
-            <p class="text-sm text-gray-700 mb-4">
-                Apply online for a personal loan and get up to **₹55 Lakhs** to manage all your expenses, big or small, on Bajaj Markets. Enjoy interest rates starting at just **9.99% p.a.**, with flexible repayment tenures of up to **96 months**. Compare loan offers from **25+ trusted lenders** and benefit from fast online application process, quick approvals within minutes, and minimal documentation.
+            <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                Apply online for a personal loan and get up to <span class="font-bold">₹55 Lakhs</span> to manage all your expenses. Compare offers from <span class="font-bold">25+ trusted lenders</span> with quick approvals and minimal documentation.
             </p>
-            <div class="text-xs text-gray-500 border-t pt-2 mt-4 flex justify-between">
-                <span>**9.99% p.a.** onwards</span>
-                <span>|</span>
-                <span>up to **₹55 Lakhs**</span>
-                <span>|</span>
-                <span>**20+ Lenders**</span>
+            <div class="text-[10px] uppercase tracking-wider text-gray-400 border-t pt-3 mt-4 flex justify-between font-bold">
+                <span>9.99% p.a.</span>
+                <span class="text-gray-200">|</span>
+                <span>up to ₹55 Lakhs</span>
+                <span class="text-gray-200">|</span>
+                <span>20+ Lenders</span>
             </div>
         </div>
         
-        <div class="bg-white p-4 mt-2">
-            <h2 class="text-base font-semibold text-gray-900 mb-2">
-                Enter Loan Amount
-            </h2>
-            <p class="text-xs text-gray-500 mb-3">(₹500 to ₹55 Lakhs)</p>
-            <div class="flex items-center border border-gray-300 rounded-lg p-3">
-                <span class="text-lg font-bold text-gray-500 mr-2">₹</span>
-                <input type="text" value="1,00,000" class="flex-grow text-lg font-bold text-right border-none focus:ring-0 p-0 m-0" />
+        <div class="bg-white p-5 mt-2 shadow-sm">
+            <h2 class="text-base font-bold text-gray-900 mb-1">Enter Loan Amount</h2>
+            <p class="text-xs text-gray-400 mb-3">(₹500 to ₹55 Lakhs)</p>
+            <div class="flex items-center border-2 border-gray-100 rounded-xl p-3 bg-gray-50 focus-within:border-red-600 transition-colors">
+                <span class="text-xl font-bold text-gray-400 mr-2">₹</span>
+                <input type="text" value="1,00,000" class="flex-grow text-xl font-bold text-right bg-transparent border-none focus:ring-0 p-0" />
             </div>
         </div>
 
-        <div class="bg-white p-4 mt-2">
-            <h2 class="text-base font-semibold text-gray-900 mb-2">
-                Select Loan Tenure
-            </h2>
-            <p class="text-xs text-gray-500 mb-3">(2 Months to 96 Months)</p>
-            
-            <div class="flex space-x-2 overflow-x-auto pb-2">
-                <div class="flex-shrink-0">
-                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700">2</button>
-                </div>
-                <div class="flex-shrink-0">
-                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700">3</button>
-                </div>
-                <div class="flex-shrink-0">
-                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700">6</button>
-                </div>
-                <div class="flex-shrink-0">
-                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700">12</button>
-                </div>
-                <div class="flex-shrink-0">
-                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700">24</button>
-                </div>
-                <div class="flex-shrink-0">
-                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700">36</button>
-                </div>
-                <div class="flex-shrink-0">
-                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700">48</button>
-                </div>
-                <div class="flex-shrink-0">
-                    <button class="px-4 py-2 border rounded-lg text-sm font-semibold tenure-active">60</button>
-                </div>
-                <div class="flex-shrink-0">
-                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700">72</button>
-                </div>
+        <div class="bg-white p-5 mt-2 shadow-sm">
+            <h2 class="text-base font-bold text-gray-900 mb-1">Select Loan Tenure</h2>
+            <p class="text-xs text-gray-400 mb-3">(Months)</p>
+            <div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
+                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">12</button>
+                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">24</button>
+                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">36</button>
+                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">48</button>
+                <button class="px-4 py-2 border rounded-lg text-sm font-bold tenure-active shadow-md">60</button>
+                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">72</button>
             </div>
         </div>
 
-        <div class="bg-white p-4 mt-2">
-            <h2 class="text-base font-semibold text-gray-900 mb-4">
-                Selected Partner <span class="text-indigo-600">Bajaj Finance</span>
+        <div class="bg-white p-5 mt-2 shadow-sm mb-4">
+            <h2 class="text-base font-bold text-gray-900 mb-4">
+                Selected Partner <span class="text-red-600 ml-1">Bajaj Finance</span>
             </h2>
-            
-            <div class="flex space-x-4 overflow-x-auto pb-2">
-                <div class="flex-shrink-0 w-40 border-2 border-indigo-600 rounded-xl p-3 shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-8 h-8 bg-indigo-100 rounded-full mr-2"></div>
-                        <span class="text-sm font-semibold">Bajaj Finance</span>
+            <div class="flex space-x-4 overflow-x-auto pb-4">
+                <div class="flex-shrink-0 w-40 border-2 border-red-600 rounded-xl p-4 shadow-sm bg-red-50/30">
+                    <div class="flex items-center mb-3">
+                        <div class="w-8 h-8 bg-white border border-gray-100 rounded-full mr-2"></div>
+                        <span class="text-[11px] font-bold">Bajaj Finance</span>
                     </div>
-                    <p class="text-lg font-bold text-gray-900">₹2,125</p>
-                    <p class="text-xs text-gray-500">Fixed EMI</p>
+                    <p class="text-lg font-black text-gray-900">₹2,125</p>
+                    <p class="text-[10px] text-gray-500 uppercase font-bold">Fixed EMI</p>
                 </div>
 
-                <div class="flex-shrink-0 w-40 border border-gray-300 rounded-xl p-3 shadow-sm relative">
-                    <div class="flex items-center mb-4">
-                        <div class="w-8 h-8 bg-pink-100 rounded-full mr-2"></div>
-                        <span class="text-sm font-semibold">Finnable</span>
+                <div class="flex-shrink-0 w-40 border border-gray-200 rounded-xl p-4 shadow-sm relative bg-white">
+                    <div class="flex items-center mb-3">
+                        <div class="w-8 h-8 bg-pink-50 rounded-full mr-2"></div>
+                        <span class="text-[11px] font-bold">Finnable</span>
                     </div>
-                    <p class="text-lg font-bold text-gray-900">₹2,429</p>
-                    <p class="text-xs text-gray-500">Fixed EMI</p>
-                    <span class="absolute top-0 right-0 -mt-2 -mr-2 bg-green-500 text-white text-xs font-semibold px-2 py-0.5 rounded-full shadow-lg">Free CIBIL</span>
-                </div>
-
-                <div class="flex-shrink-0 w-40 border border-gray-300 rounded-xl p-3 shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-8 h-8 bg-blue-100 rounded-full mr-2"></div>
-                        <span class="text-sm font-semibold">Kotak Mahindra...</span>
-                    </div>
-                    <p class="text-lg font-bold text-gray-900">₹2,174</p>
-                    <p class="text-xs text-gray-500">Fixed EMI</p>
-                </div>
-                
-                <div class="flex-shrink-0 w-40 border border-gray-300 rounded-xl p-3 shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-8 h-8 bg-gray-200 rounded-full mr-2"></div>
-                        <span class="text-sm font-semibold">More Lenders</span>
-                    </div>
-                    <p class="text-lg font-bold text-gray-900">...</p>
-                    <p class="text-xs text-gray-500">View All</p>
+                    <p class="text-lg font-black text-gray-900">₹2,429</p>
+                    <p class="text-[10px] text-gray-500 uppercase font-bold">Fixed EMI</p>
+                    <span class="absolute -top-2 right-2 bg-green-500 text-white text-[8px] font-black px-2 py-0.5 rounded-full uppercase">Free CIBIL</span>
                 </div>
             </div>
         </div>
-
     </main>
     
-    <footer class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-xl">
-        <div class="flex justify-around items-center h-14">
-            <button class="flex flex-col items-center text-xs text-gray-700">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+    <footer class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] px-4 pt-3 pb-2 z-20">
+        <div class="max-w-md mx-auto mb-3">
+            <a href="https://softbank.app.link/mysb" id="getAppButton" class="cta-button">
+                Apply Now
+            </a>
+        </div>
+
+        <div class="flex justify-around items-center max-w-md mx-auto">
+            <button class="flex flex-col items-center text-[10px] font-bold text-gray-400">
+                <svg class="w-5 h-5 mb-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
                 Home
             </button>
-            <button class="flex flex-col items-center text-xs text-gray-700">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
-                Deals
+            <button class="flex flex-col items-center text-[10px] font-bold text-gray-400">
+                <svg class="w-5 h-5 mb-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
+                CIBIL
             </button>
-            <button class="flex flex-col items-center text-xs text-gray-700">
-                <svg class="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
-                CIBIL Score
-            </button>
-            <button class="flex flex-col items-center text-xs text-gray-700">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2v4a2 2 0 002 2h6a2 2 0 002-2v-4a2 2 0 002-2V6a2 2 0 00-2-2H4zm6 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            <button class="flex flex-col items-center text-[10px] font-bold text-gray-400">
+                <svg class="w-5 h-5 mb-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2v4a2 2 0 002 2h6a2 2 0 002-2v-4a2 2 0 002-2V6a2 2 0 00-2-2H4zm6 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                 Accounts
             </button>
-            <button class="flex flex-col items-center text-xs text-gray-700">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                Explore
+            <button class="flex flex-col items-center text-[10px] font-bold text-gray-400">
+                <svg class="w-5 h-5 mb-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                More
             </button>
         </div>
     </footer>
+
     <script type="text/javascript">
         // Load Branch SDK
         (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener banner closeBanner closeJourney data deepview deepviewCta first init link logout removeListener setBranchViewData setIdentity track trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback qrCode setRequestMetaData setAPIUrl getAPIUrl setDMAParamsForEEA".split(" "), 0);
 
-        // Initialize Branch and handle initial data
+        // Initialize Branch
         branch.init('key_live_mbErCMtrzeheAWS0Xagg7hjbwDkaZ6SP', function(err, data) {
             if (err) {
                 console.error('Branch init error:', err);
             } else {
-                console.log('Branch init data:', data);
-                // The initial deep link data is available in the 'data' object here.
-                // You can use 'data' to personalize the user experience,
-                // e.g., if 'data.$deeplink_path' exists, redirect to a specific in-app page.
+                console.log('Branch initialized successfully');
             }
         });
 
-        // Example: Track a custom event when the "Get the App Now!" button is clicked
-        document.getElementById('getAppButton').addEventListener('click', function() {
-            console.log('Get App button clicked!');
-            branch.logEvent('get_app_button_clicked', {
-                'landing_page_source': 'website',
-                'button_name': 'Get App Now'
+        // Track CTA Clicks
+        document.getElementById('getAppButton').addEventListener('click', function(e) {
+            // We don't preventDefault here so the <a> tag still follows the link
+            branch.logEvent('apply_now_clicked', {
+                'product': 'Personal Loan',
+                'partner': 'Bajaj Finance',
+                'amount': document.querySelector('input').value
             });
-            // Optionally, you can also create a Branch link and redirect the user
-            // branch.createLink({
-            //     campaign: 'landing_page_cta',
-            //     channel: 'web',
-            //     feature: 'get_app',
-            //     data: {
-            //         'custom_data': 'value'
-            //     }
-            // }, function(err, link) {
-            //     if (!err) {
-            //         console.log('Branch link created:', link);
-            //         window.location.href = link; // Redirect to the generated Branch link
-            //     }
-            // });
-        });
-
-        // Example: Track a custom event when the "Share with Friends" button is clicked
-        document.getElementById('shareButton').addEventListener('click', function() {
-            console.log('Share button clicked!');
-            branch.logEvent('share_button_clicked', {
-                'landing_page_source': 'website',
-                'button_name': 'Share with Friends'
-            });
-
-            // Example of creating a share link and opening the native share sheet (if available)
-            branch.createLink({
-                campaign: 'landing_page_share',
-                channel: 'web_share',
-                feature: 'share_app',
-                data: {
-                    'custom_share_message': 'Check out this awesome app!'
-                }
-            }, function(err, link) {
-                if (!err) {
-                    console.log('Branch share link created:', link);
-                    if (navigator.share) {
-                        navigator.share({
-                            title: 'Our Awesome App',
-                            text: 'You should really check out this app!',
-                            url: link
-                        }).then(() => console.log('Successful share'))
-                          .catch((error) => console.log('Error sharing', error));
-                    } else {
-                        // Fallback for browsers that don't support navigator.share
-                        // You could display the link or copy it to clipboard
-                        console.log('Web Share API not supported. Share this link:', link);
-                        // For copying to clipboard, you'd need a more robust solution
-                        // document.execCommand('copy') is deprecated, but works in iframes
-                        const el = document.createElement('textarea');
-                        el.value = link;
-                        document.body.appendChild(el);
-                        el.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(el);
-                        alert('Link copied to clipboard: ' + link); // Using alert for demo, replace with custom modal
-                    }
-                } else {
-                    console.error('Error creating Branch link:', err);
-                }
-            });
+            console.log('Attribution event logged for Branch');
         });
     </script>
 </body>
