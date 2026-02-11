@@ -3,151 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply for Personal Loan | SoftBank</title> 
+    <title>Sticky Branch Fix</title> 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-            padding-bottom: 120px; /* Space for fixed footer */
-        }
-        .tenure-active {
-            @apply bg-red-600 text-white border-red-600;
-        }
+        /* 1. Force the Branch Banner to be Fixed (Non-scrollable) */
         #branch-banner-iframe {
-            bottom: 120px !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 10000 !important;
+            display: block !important;
         }
-        .cta-button {
-            @apply bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg active:scale-95 transition-transform w-full text-center block text-lg;
+
+        /* 2. Header Sticky Styles */
+        .header-main {
+            position: -webkit-sticky !important;
+            position: sticky !important;
+            top: 0; 
+            z-index: 9999 !important;
+            height: 60px;
+            background-color: white;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .header-sub {
+            position: -webkit-sticky !important;
+            position: sticky !important;
+            top: 60px; 
+            z-index: 9998 !important;
+            height: 50px;
+            background-color: #111827;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 3. Page Setup */
+        body { 
+            margin: 0 !important; 
+            padding: 0 !important; 
+        }
+        
+        /* Transition for smooth movement when banner appears/disappears */
+        main, .header-main, .header-sub {
+            transition: top 0.2s ease-in-out, padding-top 0.2s ease-in-out;
+        }
+
+        .spacer { 
+            height: 2000px; 
+            background: linear-gradient(#fff, #f3f4f6); 
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen"> 
+<body class="bg-gray-100"> 
     
-    <header class="bg-white p-4 shadow-sm border-b border-gray-200 sticky top-0 z-10">
-        <div class="flex items-center justify-between max-w-7xl mx-auto">
-            <div class="flex items-center space-x-2">
-                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                <span class="text-sm text-gray-500">Home / Personal Loan</span>
-            </div>
-        </div>
+    <header class="header-main px-6 border-b border-gray-200">
+        <h1 class="text-xl font-bold text-red-600 tracking-tighter">Branch</h1>
     </header>
 
-    <main class="max-w-md mx-auto">
-        <div class="bg-white p-5 shadow-sm">
-            <h1 class="text-2xl font-bold text-gray-900 mb-2 leading-tight">
-                Apply for Personal Loan Online <br> Starting at 9.99% p.a.
-            </h1>
-            <p class="text-sm text-gray-600 mb-4 leading-relaxed">
-                Apply online for a personal loan and get up to <span class="font-bold">₹55 Lakhs</span> to manage all your expenses. Compare offers from <span class="font-bold">25+ trusted lenders</span> with quick approvals and minimal documentation.
-            </p>
-            <div class="text-[10px] uppercase tracking-wider text-gray-400 border-t pt-3 mt-4 flex justify-between font-bold">
-                <span>9.99% p.a.</span>
-                <span class="text-gray-200">|</span>
-                <span>up to ₹55 Lakhs</span>
-                <span class="text-gray-200">|</span>
-                <span>20+ Lenders</span>
-            </div>
-        </div>
-        
-        <div class="bg-white p-5 mt-2 shadow-sm">
-            <h2 class="text-base font-bold text-gray-900 mb-1">Enter Loan Amount</h2>
-            <p class="text-xs text-gray-400 mb-3">(₹500 to ₹55 Lakhs)</p>
-            <div class="flex items-center border-2 border-gray-100 rounded-xl p-3 bg-gray-50 focus-within:border-red-600 transition-colors">
-                <span class="text-xl font-bold text-gray-400 mr-2">₹</span>
-                <input type="text" value="1,00,000" class="flex-grow text-xl font-bold text-right bg-transparent border-none focus:ring-0 p-0" />
-            </div>
-        </div>
+    <nav class="header-sub px-6 text-white text-xs font-bold uppercase tracking-widest">
+        <ul class="flex space-x-6">
+            <li class="hover:text-red-400 cursor-pointer">Personal Loan</li>
+            <li class="hover:text-red-400 cursor-pointer">Credit Cards</li>
+            <li class="hover:text-red-400 cursor-pointer">Offers</li>
+        </ul>
+    </nav>
 
-        <div class="bg-white p-5 mt-2 shadow-sm">
-            <h2 class="text-base font-bold text-gray-900 mb-1">Select Loan Tenure</h2>
-            <p class="text-xs text-gray-400 mb-3">(Months)</p>
-            <div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
-                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">12</button>
-                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">24</button>
-                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">36</button>
-                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">48</button>
-                <button class="px-4 py-2 border rounded-lg text-sm font-bold tenure-active shadow-md">60</button>
-                <button class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold text-gray-600">72</button>
-            </div>
+    <main id="main-content" class="max-w-4xl mx-auto p-10">
+        <div class="bg-white p-10 rounded-xl shadow-sm border border-gray-100">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Sticky Implementation</h2>
+            <p class="text-gray-600 mb-6">The Branch banner is now fixed to the top. Your headers and this content box will automatically calculate their position relative to the banner's height.</p>
         </div>
-
-        <div class="bg-white p-5 mt-2 shadow-sm mb-4">
-            <h2 class="text-base font-bold text-gray-900 mb-4">
-                Selected Partner <span class="text-red-600 ml-1">Bajaj Finance</span>
-            </h2>
-            <div class="flex space-x-4 overflow-x-auto pb-4">
-                <div class="flex-shrink-0 w-40 border-2 border-red-600 rounded-xl p-4 shadow-sm bg-red-50/30">
-                    <div class="flex items-center mb-3">
-                        <div class="w-8 h-8 bg-white border border-gray-100 rounded-full mr-2"></div>
-                        <span class="text-[11px] font-bold">Bajaj Finance</span>
-                    </div>
-                    <p class="text-lg font-black text-gray-900">₹2,125</p>
-                    <p class="text-[10px] text-gray-500 uppercase font-bold">Fixed EMI</p>
-                </div>
-
-                <div class="flex-shrink-0 w-40 border border-gray-200 rounded-xl p-4 shadow-sm relative bg-white">
-                    <div class="flex items-center mb-3">
-                        <div class="w-8 h-8 bg-pink-50 rounded-full mr-2"></div>
-                        <span class="text-[11px] font-bold">Finnable</span>
-                    </div>
-                    <p class="text-lg font-black text-gray-900">₹2,429</p>
-                    <p class="text-[10px] text-gray-500 uppercase font-bold">Fixed EMI</p>
-                    <span class="absolute -top-2 right-2 bg-green-500 text-white text-[8px] font-black px-2 py-0.5 rounded-full uppercase">Free CIBIL</span>
-                </div>
-            </div>
-        </div>
+        <div class="spacer mt-10"></div>
     </main>
-    
-    <footer class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] px-4 pt-3 pb-2 z-20">
-        <div class="max-w-md mx-auto mb-3">
-            <a href="https://softbank.app.link/ekyc" id="getAppButton" class="cta-button">
-                Apply Now
-            </a>
-        </div>
-
-        <div class="flex justify-around items-center max-w-md mx-auto">
-            <button class="flex flex-col items-center text-[10px] font-bold text-gray-400">
-                <svg class="w-5 h-5 mb-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-                Home
-            </button>
-            <button class="flex flex-col items-center text-[10px] font-bold text-gray-400">
-                <svg class="w-5 h-5 mb-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
-                CIBIL
-            </button>
-            <button class="flex flex-col items-center text-[10px] font-bold text-gray-400">
-                <svg class="w-5 h-5 mb-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2v4a2 2 0 002 2h6a2 2 0 002-2v-4a2 2 0 002-2V6a2 2 0 00-2-2H4zm6 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                Accounts
-            </button>
-            <button class="flex flex-col items-center text-[10px] font-bold text-gray-400">
-                <svg class="w-5 h-5 mb-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                More
-            </button>
-        </div>
-    </footer>
 
     <script type="text/javascript">
-        // Load Branch SDK
+        // Branch SDK Init
         (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener banner closeBanner closeJourney data deepview deepviewCta first init link logout removeListener setBranchViewData setIdentity track trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback qrCode setRequestMetaData setAPIUrl getAPIUrl setDMAParamsForEEA".split(" "), 0);
 
-        // Initialize Branch
-        branch.init('key_live_mbErCMtrzeheAWS0Xagg7hjbwDkaZ6SP', function(err, data) {
-            if (err) {
-                console.error('Branch init error:', err);
-            } else {
-                console.log('Branch initialized successfully');
+        branch.init('key_live_mbErCMtrzeheAWS0Xagg7hjbwDkaZ6SP');
+
+        const fixStickyOffsets = () => {
+            const h1 = document.querySelector('.header-main');
+            const h2 = document.querySelector('.header-sub');
+            const mainContent = document.getElementById('main-content');
+            const branchIframe = document.getElementById('branch-banner-iframe');
+            
+            let bannerHeight = 0;
+
+            if (branchIframe && branchIframe.offsetHeight > 0) {
+                bannerHeight = branchIframe.offsetHeight;
+                branchIframe.style.setProperty('position', 'fixed', 'important');
+                branchIframe.style.setProperty('top', '0', 'important');
             }
+
+            if (h1 && h2) {
+                // 1. Move the Headers
+                h1.style.setProperty('top', bannerHeight + 'px', 'important');
+                h2.style.setProperty('top', (bannerHeight + 60) + 'px', 'important');
+
+                // 2. Push the Content Div down so it's not hidden behind sticky headers
+                // We add 110px (header-main 60 + header-sub 50) to the banner height
+                if (mainContent) {
+                    mainContent.style.paddingTop = (bannerHeight > 0) ? (bannerHeight + 20) + 'px' : '40px';
+                }
+            }
+        };
+
+        const observer = new MutationObserver(() => {
+            fixStickyOffsets();
         });
 
-        // Track CTA Clicks
-        document.getElementById('getAppButton').addEventListener('click', function(e) {
-            // We don't preventDefault here so the <a> tag still follows the link
-            branch.logEvent('apply_now_clicked', {
-                'product': 'Personal Loan',
-                'partner': 'Bajaj Finance',
-                'amount': document.querySelector('input').value
-            });
-            console.log('Attribution event logged for Branch');
+        observer.observe(document.documentElement, { 
+            childList: true, 
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['style']
         });
+
+        window.addEventListener('resize', fixStickyOffsets);
+        window.addEventListener('load', fixStickyOffsets);
+
+        branch.addListener('didShowJourney', () => setTimeout(fixStickyOffsets, 200));
+        branch.addListener('didCloseJourney', () => setTimeout(fixStickyOffsets, 100));
     </script>
 </body>
 </html>
